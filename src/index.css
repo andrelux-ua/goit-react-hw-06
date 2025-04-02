@@ -55,10 +55,10 @@ button {
   font-family: inherit;
   cursor: pointer;
   margin-right: 25px;
-  box-shadow: 1px 1px 0 rgb(173, 173, 173);
+  box-shadow: 1px 1px 0 rgb(176, 176, 176);
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #1e27d4;
 }
 button:focus,
 button:focus-visible {
@@ -100,7 +100,7 @@ form > input {
 
 /* Стилі для повідомлень про помилки */
 form span {
-  color: red;
+  color: rgb(255, 238, 0);
   font-size: 12px;
   margin-top: 5px;
   display: block;
