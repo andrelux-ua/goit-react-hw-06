@@ -1,13 +1,24 @@
-function Contact({ userContact: { id, name, number }, onDelete }) {
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/contactsSlice';
+
+const Contact = ({ id, name, number }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteContact(id));
+  };
+
   return (
-    <div>
-      <div>
+    <>
+      <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
         <p>{name}</p>
-        <a href={`tel:${number}`}>{number}</a>
+        <p>{number}</p>
+        <button type="button" onClick={handleDelete}>
+          Delete
+        </button>
       </div>
-      <button onClick={() => onDelete(id)}>Delete</button>
-    </div>
+    </>
   );
-}
+};
 
 export default Contact;

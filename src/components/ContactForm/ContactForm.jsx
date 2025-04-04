@@ -1,55 +1,58 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
+import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/contactsSlice';
 
-const validationSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, 'Must be min 3 chars')
-    .max(50, 'Maximum 50 characters!')
-    .matches(/^[a-zA-ZА-Яа-яЇїІіЄєҐґ'’ -]+$/, 'Name cannot contain numbers!')
-    .required('This field is required'),
+const ContactForm = () => {
+  const dispatch = useDispatch();
 
-  number: Yup.string()
-    .matches(/^[+]?[\d]+$/, "Only numbers and '+' sign!")
-    .min(3, 'Must be min 3 chars')
-    .max(50, 'Maximum 50 characters!')
-    .required('This field is required!'),
-});
+  const phonebookSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(3, 'Must be min 3 chars')
+      .max(50, 'Maximum 50 characters!')
+      .matches(/^[a-zA-ZА-Яа-яЇїІіЄєҐґ'’ -]+$/, 'Name cannot contain numbers!')
+      .required('This field is required!'),
+    number: Yup.string()
+      .matches(/^[+]?[\d]+$/, "Only numbers and '+' sign!")
+      .min(3, 'Must be min 3 chars')
+      .max(50, 'Maximum 50 characters!')
+      .required('Phone number is required'),
+  });
 
-function ContactForm({ onAdd }) {
-  const handleSubmit = (values, { resetForm }) => {
-    const newContact = {
-      id: nanoid(),
-      name: values.name,
-      number: values.number,
-    };
-    onAdd(newContact);
-    resetForm();
+  const handleSubmit = (values, actions) => {
+    dispatch(
+      addContact({
+        id: nanoid(),
+        name: values.name,
+        number: values.number,
+      })
+    );
+    actions.resetForm();
   };
 
   return (
-    <Formik
-      initialValues={{ name: '', number: '' }}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-      <Form>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <Field type="text" name="name" id="name" />
-          <ErrorMessage name="name" component="span" />
-        </div>
+    <div>
+      <Formik
+        initialValues={{ name: '', number: '' }}
+        onSubmit={handleSubmit}
+        validationSchema={phonebookSchema}
+      >
+        <Form style={{ padding: '1px' }}>
+          <label htmlFor="name" style={{}}>
+            Name
+          </label>
+          <Field type="text" name="name" id="name"></Field>
+          <ErrorMessage name="name" component="p" />
+          <label htmlFor="number">Number</label>
+          <Field type="text" name="number" id="number"></Field>
+          <ErrorMessage name="number" component="p" />
 
-        <div>
-          <label htmlFor="number">Number:</label>
-          <Field type="tel" name="number" id="number" />
-          <ErrorMessage name="number" component="span" />
-        </div>
-
-        <button type="submit">Add contact</button>
-      </Form>
-    </Formik>
+          <button type="submit">Add contact</button>
+        </Form>
+      </Formik>
+    </div>
   );
-}
+};
 
 export default ContactForm;
