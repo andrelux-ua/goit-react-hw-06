@@ -1,6 +1,6 @@
 .app {
   position: static;
-  background-image: url(src/assets/images/s15.webp);
+  background-image: url(../../assets/images/s15.webp);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
