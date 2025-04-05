@@ -14,7 +14,10 @@ const ContactForm = () => {
       .matches(/^[a-zA-ZА-Яа-яЇїІіЄєҐґ'’ -]+$/, 'Name cannot contain numbers!')
       .required('This field is required!'),
     number: Yup.string()
-      .matches(/^[+]?[\d]+$/, "Only numbers and '+' sign!")
+      .matches(
+        /(^\d{3}-\d{2}-\d{2}$)|(^\+\d{2}-\d{3}-\d{3}-\d{4}$)/,
+        'Only numbers in the format xxx-xx-xx and +xx-xxx-xxx-xxxx !'
+      )
       .min(3, 'Must be min 3 chars')
       .max(50, 'Maximum 50 characters!')
       .required('Phone number is required'),
@@ -44,7 +47,7 @@ const ContactForm = () => {
           </label>
           <Field type="text" name="name" id="name"></Field>
           <ErrorMessage name="name" component="p" />
-          <label htmlFor="number">Number</label>
+          <label htmlFor="number">Number xxx-xx-xx</label>
           <Field type="text" name="number" id="number"></Field>
           <ErrorMessage name="number" component="p" />
 

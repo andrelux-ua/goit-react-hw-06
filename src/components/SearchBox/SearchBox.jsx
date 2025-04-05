@@ -12,7 +12,12 @@ const SearchBox = () => {
     <div style={{ width: '145px' }}>
       <label
         htmlFor="search"
-        style={{ width: '100%', height: '10px', fontSize: '12px' }}
+        style={{
+          width: '100%',
+          height: '10px',
+          fontSize: '12px',
+          marginLeft: '21px',
+        }}
       >
         Find contacts by name
       </label>
@@ -23,12 +28,15 @@ const SearchBox = () => {
         id="search"
         value={filter}
         onChange={handleFilterChange}
-        style={{ width: '100%', marginLeft: '2px', marginRight: '2px' }}
+        style={{
+          width: '100%',
+          marginLeft: '10px',
+          marginRight: '2px',
+          marginBottom: '5px',
+        }}
       />
     </div>
   );
 };
 
 export default SearchBox;
-
-

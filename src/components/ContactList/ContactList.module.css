@@ -2,8 +2,10 @@
   flex-grow: 1;
   width: 100%;
   overflow-y: auto;
-  max-height: calc(65.5vh - 100px);
+  max-height: calc(65.5vh - 210px);
   list-style: none;
   padding: 10px;
-  margin: 0;
+  margin: 10px 0 0 0;
+  padding-top: 6px;
+  background-color: rgba(238, 236, 232, 0.25);
 }

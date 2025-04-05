@@ -8,7 +8,11 @@ const App = () => {
   return (
     <Layout>
       <div className={css.fixedHeader}>
-        <h1 style={{ marginTop: '4px', marginBottom: '2px' }}>Phonebook</h1>
+        <h1
+          style={{ marginTop: '4px', marginBottom: '5px', textAlign: 'center' }}
+        >
+          Phonebook
+        </h1>
         <ContactForm />
         <SearchBox />
         <ContactList />
