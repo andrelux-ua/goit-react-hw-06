@@ -8,12 +8,10 @@ function Layout({ children }) {
         src={img}
         alt="telephone"
         style={{
-          height: '712px',
-          width: '710px',
+          height: '640px',
+          width: '680px',
           position: ' absolute;',
-          top: '11.6vh',
-          left: '43.4%',
-          transform: 'translateX(-50%)',
+
           zIndex: '-1',
           objectFit: 'cover',
           filter: 'blur(100px)',

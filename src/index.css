@@ -194,6 +194,10 @@ li > div > div {
   margin-right: 5px;
 }
 
+/*  top: '11.1vh',
+          left: '43.4%',
+          transform: 'translateX(-50%)', */
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
