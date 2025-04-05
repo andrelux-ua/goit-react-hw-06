@@ -9,14 +9,14 @@ const SearchBox = () => {
     dispatch(changeFilter(e.target.value));
   };
   return (
-    <div style={{ width: '145px' }}>
+    <div style={{ width: '145px', marginLeft: 'auto', marginRight: 'auto' }}>
       <label
         htmlFor="search"
         style={{
-          width: '100%',
           height: '10px',
           fontSize: '12px',
-          marginLeft: '21px',
+          marginLeft: '10px',
+          marginRight: '10px',
         }}
       >
         Find contacts by name
@@ -29,9 +29,9 @@ const SearchBox = () => {
         value={filter}
         onChange={handleFilterChange}
         style={{
-          width: '100%',
-          marginLeft: '10px',
-          marginRight: '2px',
+          width: '145px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
           marginBottom: '5px',
         }}
       />

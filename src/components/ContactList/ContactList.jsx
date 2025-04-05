@@ -21,7 +21,9 @@ const ContactList = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            width: '145px',
+            width: '100%',
+            marginLeft: 'auto',
+            marginRight: 'auto',
           }}
         >
           <Contact id={id} name={name} number={number} />

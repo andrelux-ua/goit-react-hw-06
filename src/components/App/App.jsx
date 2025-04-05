@@ -9,7 +9,7 @@ const App = () => {
     <Layout>
       <div className={css.fixedHeader}>
         <h1
-          style={{ marginTop: '4px', marginBottom: '5px', textAlign: 'center' }}
+          style={{ marginTop: '2px', marginBottom: '5px', textAlign: 'center' }}
         >
           Phonebook
         </h1>
